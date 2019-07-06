@@ -1,0 +1,6 @@
+endpoint: https://eu1.prisma.sh/bartek-piela-09119b/scantree/dev
+datamodel: datamodel.prisma
+
+generate:
+  - generator: javascript-client
+    output: ./generated/prisma-client/
