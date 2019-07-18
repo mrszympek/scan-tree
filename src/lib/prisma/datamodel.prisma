@@ -1,4 +1,13 @@
 type User {
   id: ID! @id
+  age: Int
+  email: String! @unique
   name: String!
+}
+
+type Product {
+  id: ID! @id
+  name: String!
+  description: String!
+  price: Int!
 }

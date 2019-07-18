@@ -1,0 +1,4 @@
+{
+  "name": "Untitled GraphQL Schema",
+  "schemaPath": "src/lib/prisma/generated/prisma-client/prisma-schema.js"
+}
