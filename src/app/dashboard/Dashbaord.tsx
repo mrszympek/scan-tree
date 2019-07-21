@@ -1,9 +1,13 @@
 import * as React from 'react';
+import {Link} from "react-router-dom";
 
 export const Dashboard = () => {
   return (
     <div>
-      Test
+
+      <Link to="/add-product">
+        Dodaj produkt
+      </Link>
     </div>
   );
 };

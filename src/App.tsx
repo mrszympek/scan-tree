@@ -1,33 +1,12 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Link} from "react-router-dom";
+import { AddProduct } from './app/addProcuct/AddProduct';
 import {Dashboard} from "./app/dashboard/Dashbaord";
 import {ApolloProvider} from "react-apollo";
 import {client} from "./lib/apollo/client";
-import gql from "graphql-tag";
-
-export const DUPA = gql`
- query {
-   products {
-     name
-     description
-     price
-   }
- }
-`;
-
-export const xxx = async () => {
-  const { data } = await client.query({query: DUPA});
-
-  if(data) {
-    console.log(data)
-  }
-};
 
 export const App = () => {
-  useEffect( () => {
-    xxx()
-  }, []);
 
   return (
     <ApolloProvider client={client}>
@@ -40,6 +19,7 @@ export const App = () => {
         </div>
 
         <Route path="/dashboard" component={Dashboard}/>
+        <Route path="/add-product" component={AddProduct}/>
       </Router>
     </ApolloProvider>
   );
