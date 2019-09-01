@@ -1,0 +1,46 @@
+PODS:
+  - Alamofire (4.8.2)
+  - IQKeyboardManager (6.4.0)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
+  - Spring (1.0.6)
+  - SVProgressHUD (2.2.5)
+  - SwiftyBeaver (1.7.0)
+
+DEPENDENCIES:
+  - Alamofire
+  - IQKeyboardManager
+  - SDWebImage
+  - Spring (from `https://github.com/MussaCharles/Spring.git`)
+  - SVProgressHUD
+  - SwiftyBeaver
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - IQKeyboardManager
+    - SDWebImage
+    - SVProgressHUD
+    - SwiftyBeaver
+
+EXTERNAL SOURCES:
+  Spring:
+    :git: https://github.com/MussaCharles/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: b96701ce34d4854e53682822b16fac4312b25e19
+    :git: https://github.com/MussaCharles/Spring.git
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
+  SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
+
+PODFILE CHECKSUM: 88b22c547d0799bc6e22a00340a84ddf602ba283
+
+COCOAPODS: 1.7.5

@@ -1,0 +1,14 @@
+platform :ios, "11.0"
+use_frameworks!
+
+target 'ScanTree' do
+inhibit_all_warnings!
+
+pod 'SwiftyBeaver'
+pod 'Alamofire'
+pod 'Spring', :git => 'https://github.com/MussaCharles/Spring.git'
+pod 'SDWebImage'
+pod 'SVProgressHUD'
+pod 'IQKeyboardManager'
+
+end
