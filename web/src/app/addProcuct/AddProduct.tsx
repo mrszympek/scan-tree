@@ -1,3 +1,5 @@
+import { TextField } from '@material-ui/core';
+import Button from '@material-ui/core/Button';
 import { gql } from 'apollo-boost';
 import { Field, FieldProps, Form, Formik, FormikProps } from 'formik';
 import * as React from 'react';
@@ -19,7 +21,7 @@ export const productInitialValues: ProductValues = {
 export const ADD_PRODUCT = gql`
     mutation addProduct($name: String!, $description: String!, $price: Int!) {
         createProduct(data: {
-            name: $name, 
+            name: $name,
             description: $description,
             price: $price
         })
@@ -32,27 +34,42 @@ export const ADD_PRODUCT = gql`
 
 export const handleFormSubmit = async (values: ProductValues) => {
 
-  const {data} = await client.mutate<ProductValues>({
+  const { data } = await client.mutate<ProductValues>({
     mutation: ADD_PRODUCT,
     refetchQueries: GET_PRODUCTS,
     variables: {
       name: values.name,
       description: values.description,
       price: values.price
-    }});
+    }
+  });
 
   console.log(typeof values.price, data);
 };
 
 export const PriceComponent = ({ field }: FieldProps<ProductValues>) => (
-  <input type="number" { ...field } />
-);
+  <TextField
+    required
+    type="number"
+    id="standard-required"
+    label="Required"
+    defaultValue="Hello World"
+    margin="normal"
+    { ...field }
+  />);
 
 export const TextComponent: React.FC<FieldProps<ProductValues>> = ({
   field
 }) => (
   <div>
-    <input type="text" { ...field } />
+    <TextField
+      required
+      id="standard-required"
+      label="Required"
+      defaultValue="Hello World"
+      margin="normal"
+      { ...field }
+    />
   </div>
 );
 
@@ -73,11 +90,11 @@ export const AddProduct = () => {
 						</pre>
             <Field
               name="name"
-              component={TextComponent}
+              component={ TextComponent }
             />
             <Field
               name="description"
-              component={TextComponent}
+              component={ TextComponent }
             />
             <Field
               name="price"
@@ -85,7 +102,15 @@ export const AddProduct = () => {
               type="number"
             />
 
-            <button type="submit">Dodaj</button>
+            <div>
+              <Button
+                color="primary"
+                variant="contained"
+                type="submit"
+              >
+                Dodaj produkt
+              </Button>
+            </div>
           </Form>
         ) }
       />
