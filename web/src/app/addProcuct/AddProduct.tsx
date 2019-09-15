@@ -2,6 +2,7 @@ import { gql } from 'apollo-boost';
 import { Field, FieldProps, Form, Formik, FormikProps } from 'formik';
 import * as React from 'react';
 import { client } from '../../lib/apollo/client';
+import { GET_PRODUCTS } from '../productsList/productsList';
 
 export type ProductValues = {
   name: string,
@@ -33,6 +34,7 @@ export const handleFormSubmit = async (values: ProductValues) => {
 
   const {data} = await client.mutate<ProductValues>({
     mutation: ADD_PRODUCT,
+    refetchQueries: GET_PRODUCTS,
     variables: {
       name: values.name,
       description: values.description,
