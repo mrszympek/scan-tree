@@ -1,6 +1,11 @@
+import { Table } from '@material-ui/core';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 import gql from 'graphql-tag';
-import { useEffect, useState } from 'react';
 import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { client } from '../../lib/apollo/client';
 import { Product } from '../../lib/prisma/generated/prisma-client/index';
@@ -41,14 +46,30 @@ export const ProductsList = () => {
 
   return (
     <div>
-      {
-        products &&
-        products.map(  (e: Product, index) => (
-          <div key={index}>
-            <Link to={`/product/${e.id}`}>{e.name}</Link>
-          </div>
-        ) )
-      }
+      <Table>
+        <TableHead>
+          <TableRow>
+            <TableCell>Nazwa Produktu</TableCell>
+            <TableCell>Data dodania</TableCell>
+            <TableCell>Cena</TableCell>
+            <TableCell>Dział</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {
+            products.map(row => (
+              <TableRow key={row.id}>
+                <TableCell>
+                  <Link to={ `/product/${ row.id }` }>{ row.name }</Link>
+                </TableCell>
+                <TableCell>12.11.2019</TableCell>
+                <TableCell>{ row.price }</TableCell>
+                <TableCell>Wrzosy</TableCell>
+              </TableRow>
+            ))
+          }
+        </TableBody>
+      </Table>
     </div>
   );
 };
