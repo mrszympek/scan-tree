@@ -3,3 +3,29 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
+
+.avatar {
+  height: 125px !important;
+  width: 125px !important;
+  border-radius: 100% !important;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.my-3 {
+  margin: 16px 0 16px;
+}

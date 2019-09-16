@@ -1,5 +1,6 @@
 import { Table } from '@material-ui/core';
 import Container from '@material-ui/core/Container';
+import Paper from '@material-ui/core/Paper';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
@@ -43,34 +44,35 @@ export const ProductsList = () => {
     getProducts(setProductsData);
   }, [products]);
 
-
   return (
     <div>
-      <Container maxWidth="lg">
-      <Table>
-        <TableHead>
-          <TableRow>
-            <TableCell>Nazwa Produktu</TableCell>
-            <TableCell>Data dodania</TableCell>
-            <TableCell>Cena</TableCell>
-            <TableCell>Dział</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {
-            products.map(row => (
-              <TableRow key={row.id}>
-                <TableCell>
-                  <Link to={ `/product/${ row.id }` }>{ row.name }</Link>
-                </TableCell>
-                <TableCell>12.11.2019</TableCell>
-                <TableCell>{ row.price }</TableCell>
-                <TableCell>Wrzosy</TableCell>
+      <Container maxWidth={'xl'}>
+        <Paper>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>Nazwa Produktu</TableCell>
+                <TableCell>Data dodania</TableCell>
+                <TableCell>Cena</TableCell>
+                <TableCell>Dział</TableCell>
               </TableRow>
-            ))
-          }
-        </TableBody>
-      </Table>
+            </TableHead>
+            <TableBody>
+              {
+                products.map(row => (
+                  <TableRow key={ row.id }>
+                    <TableCell>
+                      <Link to={ `/product/${ row.id }` }>{ row.name }</Link>
+                    </TableCell>
+                    <TableCell>12.11.2019</TableCell>
+                    <TableCell>{ row.price }</TableCell>
+                    <TableCell>Wrzosy</TableCell>
+                  </TableRow>
+                ))
+              }
+            </TableBody>
+          </Table>
+        </Paper>
       </Container>
     </div>
   );
