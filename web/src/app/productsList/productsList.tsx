@@ -18,7 +18,10 @@ export const GET_PRODUCTS = gql`
             name
             id
             price
-            description
+            category
+            destinationCountry
+            latinName
+            variety
         }
     }
 `;
@@ -46,15 +49,16 @@ export const ProductsList = () => {
 
   return (
     <div>
-      <Container maxWidth={'xl'}>
+      <Container maxWidth={ 'xl' }>
         <Paper>
           <Table>
             <TableHead>
               <TableRow>
                 <TableCell>Nazwa Produktu</TableCell>
-                <TableCell>Data dodania</TableCell>
+                <TableCell>Nazwa Łacińska Produktu</TableCell>
+                <TableCell>Kraj pochodzenia</TableCell>
                 <TableCell>Cena</TableCell>
-                <TableCell>Dział</TableCell>
+                <TableCell>Odmiana</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -64,9 +68,10 @@ export const ProductsList = () => {
                     <TableCell>
                       <Link to={ `/product/${ row.id }` }>{ row.name }</Link>
                     </TableCell>
-                    <TableCell>12.11.2019</TableCell>
+                    <TableCell>{ row.latinName }</TableCell>
+                    <TableCell>{ row.destinationCountry }</TableCell>
                     <TableCell>{ row.price }</TableCell>
-                    <TableCell>Wrzosy</TableCell>
+                    <TableCell>{ row.variety }</TableCell>
                   </TableRow>
                 ))
               }
