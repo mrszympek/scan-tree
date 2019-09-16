@@ -18,7 +18,7 @@ class HomePresenter: HomePresentationLogic {
     func presentFetchProductsSuccess(_ products: [ProductDetails]) {
         let viewModels = products.map { (product) -> Home.List.ViewModel in
             return Home.List.ViewModel(
-                id: Int(product.id) ?? -1,
+                id: product.id,
                 name: product.name,
                 description: product.description,
                 price: "\(product.price) zł"

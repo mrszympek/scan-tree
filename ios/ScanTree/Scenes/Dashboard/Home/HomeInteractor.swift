@@ -2,18 +2,23 @@
 //  Copyright (c) 2019 KamilZając. All rights reserved.
 
 import UIKit
+import Apollo
 
 protocol HomeBusinessLogic {
     func fetchProducts()
     func search(withQuery query: String)
+    func assignProduct(with identifier: GraphQLID)
 }
 
 protocol HomeDataStore {
+    var selectedProduct: ProductDetails? { get set }
 }
 
 class HomeInteractor: HomeBusinessLogic, HomeDataStore {
     var presenter: HomePresentationLogic?
     let worker = HomeWorker()
+    
+    var selectedProduct: ProductDetails?
     
     private var products: [ProductDetails] = []
 
@@ -40,6 +45,10 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
             productsToShow = products.filter({ $0.name.localizedCaseInsensitiveContains(query) })
         }
         presenter?.presentFetchProductsSuccess(productsToShow)
+    }
+    
+    func assignProduct(with identifier: GraphQLID) {
+        selectedProduct = products.first(where: { $0.id == identifier })
     }
     
 }

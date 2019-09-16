@@ -63,6 +63,10 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         interactor?.search(withQuery: sender.text!)
     }
     
+    @IBAction func scanPressed(_ sender: UIBarButtonItem) {
+        
+    }
+    
     // MARK: Display logic
     
     func displayFetchProductsError(error: String) {
@@ -87,6 +91,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.reuseIdentifier, for: indexPath) as! ProductTableViewCell
         cell.setupCell(with: viewModels[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        interactor?.assignProduct(with: viewModels[indexPath.row].id)
+        router?.navigateToProductDetails()
     }
     
 }
