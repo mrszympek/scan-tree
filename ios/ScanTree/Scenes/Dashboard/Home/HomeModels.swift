@@ -4,6 +4,12 @@
 import UIKit
 
 enum Home {
-    // MARK: Use cases
-
+    enum List {
+        struct ViewModel {
+            let id: Int
+            let name: String
+            let description: String
+            let price: String?
+        }
+    }
 }

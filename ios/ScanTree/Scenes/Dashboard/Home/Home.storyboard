@@ -10,17 +10,82 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="w3b-mM-iWJ">
             <objects>
-                <viewController id="AOR-As-QX9" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="AOR-As-QX9" customClass="HomeViewController" customModule="ScanTree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8IT-wg-rfA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="grm-fy-YNh" customClass="DesignableView" customModule="Spring">
+                                <rect key="frame" x="16" y="112" width="382" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oa4-U6-4vf">
+                                        <rect key="frame" x="20" y="0.0" width="319" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="searchEditingChanged:" destination="AOR-As-QX9" eventType="editingChanged" id="Q6V-B7-OER"/>
+                                        </connections>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="gg7-RU-VvA">
+                                        <rect key="frame" x="347" y="10" width="20" height="20"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="gg7-RU-VvA" firstAttribute="centerY" secondItem="grm-fy-YNh" secondAttribute="centerY" id="1Xy-KK-bHh"/>
+                                    <constraint firstAttribute="bottom" secondItem="oa4-U6-4vf" secondAttribute="bottom" id="MIL-18-qq5"/>
+                                    <constraint firstItem="oa4-U6-4vf" firstAttribute="leading" secondItem="grm-fy-YNh" secondAttribute="leading" constant="20" id="Ogs-It-8ny"/>
+                                    <constraint firstItem="gg7-RU-VvA" firstAttribute="leading" secondItem="oa4-U6-4vf" secondAttribute="trailing" constant="8" id="Qef-4J-1nC"/>
+                                    <constraint firstItem="oa4-U6-4vf" firstAttribute="top" secondItem="grm-fy-YNh" secondAttribute="top" id="bAV-wO-o5A"/>
+                                    <constraint firstAttribute="height" constant="40" id="bOH-Cs-9rD"/>
+                                    <constraint firstAttribute="trailing" secondItem="gg7-RU-VvA" secondAttribute="trailing" constant="15" id="jid-DL-F3l"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kwm-z3-jRn">
+                                <rect key="frame" x="0.0" y="176" width="414" height="686"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="AOR-As-QX9" id="uhl-Z3-C1p"/>
+                                    <outlet property="delegate" destination="AOR-As-QX9" id="d1o-kh-Cjb"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kwm-z3-jRn" firstAttribute="top" secondItem="grm-fy-YNh" secondAttribute="bottom" constant="24" id="348-2X-OWv"/>
+                            <constraint firstItem="kwm-z3-jRn" firstAttribute="leading" secondItem="PeH-JZ-kOq" secondAttribute="leading" id="4IL-q5-92f"/>
+                            <constraint firstItem="PeH-JZ-kOq" firstAttribute="trailing" secondItem="kwm-z3-jRn" secondAttribute="trailing" id="6kO-Kz-DWa"/>
+                            <constraint firstItem="PeH-JZ-kOq" firstAttribute="trailing" secondItem="grm-fy-YNh" secondAttribute="trailing" constant="16" id="Xay-YS-BQP"/>
+                            <constraint firstItem="PeH-JZ-kOq" firstAttribute="bottom" secondItem="kwm-z3-jRn" secondAttribute="bottom" id="Z4U-rb-0gN"/>
+                            <constraint firstItem="grm-fy-YNh" firstAttribute="leading" secondItem="PeH-JZ-kOq" secondAttribute="leading" constant="16" id="jd2-Ji-oOi"/>
+                            <constraint firstItem="grm-fy-YNh" firstAttribute="top" secondItem="PeH-JZ-kOq" secondAttribute="top" constant="24" id="q1A-B3-Psy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PeH-JZ-kOq"/>
                     </view>
                     <navigationItem key="navigationItem" id="qdW-rS-yY5"/>
+                    <connections>
+                        <outlet property="tableView" destination="kwm-z3-jRn" id="3cV-A0-VTO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2xi-Ha-P4V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -46,4 +111,7 @@
             <point key="canvasLocation" x="-202.89855072463769" y="-379.01785714285711"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="search" width="20" height="20"/>
+    </resources>
 </document>

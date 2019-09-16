@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1825C45F6361E47E4FA94974 /* Pods_ScanTree.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCD06D937B3FEB5D0FD679DD /* Pods_ScanTree.framework */; };
+		B409A3B9232FDFFB00BBC330 /* ProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B409A3B7232FDFFB00BBC330 /* ProductTableViewCell.swift */; };
+		B409A3BA232FDFFB00BBC330 /* ProductTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B409A3B8232FDFFB00BBC330 /* ProductTableViewCell.xib */; };
 		B40F8E13232FD64C00088BA0 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40F8E12232FD64C00088BA0 /* APIModels.swift */; };
 		B40F8E1B232FD69900088BA0 /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40F8E14232FD69900088BA0 /* HomePresenter.swift */; };
 		B40F8E1C232FD69900088BA0 /* HomeWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = B40F8E15232FD69900088BA0 /* HomeWorker.swift */; };
@@ -49,6 +51,8 @@
 /* Begin PBXFileReference section */
 		26ECC48DE49D5999638F0C8A /* Pods-ScanTree.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanTree.debug.xcconfig"; path = "Target Support Files/Pods-ScanTree/Pods-ScanTree.debug.xcconfig"; sourceTree = "<group>"; };
 		8C235B74CEFCF6F381F3AD90 /* Pods-ScanTree.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScanTree.release.xcconfig"; path = "Target Support Files/Pods-ScanTree/Pods-ScanTree.release.xcconfig"; sourceTree = "<group>"; };
+		B409A3B7232FDFFB00BBC330 /* ProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductTableViewCell.swift; sourceTree = "<group>"; };
+		B409A3B8232FDFFB00BBC330 /* ProductTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductTableViewCell.xib; sourceTree = "<group>"; };
 		B40F8E12232FD64C00088BA0 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
 		B40F8E14232FD69900088BA0 /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
 		B40F8E15232FD69900088BA0 /* HomeWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeWorker.swift; sourceTree = "<group>"; };
@@ -119,6 +123,15 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		B409A3B6232FDFEB00BBC330 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				B409A3B7232FDFFB00BBC330 /* ProductTableViewCell.swift */,
+				B409A3B8232FDFFB00BBC330 /* ProductTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		B40F8E22232FD69C00088BA0 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +159,7 @@
 		B4F2DCBB231C3AB200E4AA66 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B409A3B6232FDFEB00BBC330 /* Cells */,
 				B40F8E31232FD6E200088BA0 /* Home.storyboard */,
 				B40F8E14232FD69900088BA0 /* HomePresenter.swift */,
 				B40F8E15232FD69900088BA0 /* HomeWorker.swift */,
@@ -343,6 +357,7 @@
 				B4F9810B231C310C00EBF740 /* LaunchScreen.storyboard in Resources */,
 				B468C61123269F3C00A7137F /* schema.json in Resources */,
 				B4F98108231C310C00EBF740 /* Assets.xcassets in Resources */,
+				B409A3BA232FDFFB00BBC330 /* ProductTableViewCell.xib in Resources */,
 				B40F8E34232FD6F700088BA0 /* Favorites.storyboard in Resources */,
 				B4F2DCBD231C3AC400E4AA66 /* Dashboard.storyboard in Resources */,
 			);
@@ -432,6 +447,7 @@
 				B40F8E2A232FD6C700088BA0 /* FavoritesPresenter.swift in Sources */,
 				B40F8E13232FD64C00088BA0 /* APIModels.swift in Sources */,
 				B4F980FE231C310B00EBF740 /* AppDelegate.swift in Sources */,
+				B409A3B9232FDFFB00BBC330 /* ProductTableViewCell.swift in Sources */,
 				B40F8E2E232FD6C700088BA0 /* FavoritesViewController.swift in Sources */,
 				B40F8E1C232FD69900088BA0 /* HomeWorker.swift in Sources */,
 				B40F8E1F232FD69900088BA0 /* HomeViewController.swift in Sources */,

@@ -1,13 +1,13 @@
 fragment ProductDetails on Product {
-id
-name
-description
-price
+    id
+    name
+    description
+    price
 }
 
 query AllProducts {
-products {
-...ProductDetails
-}
+    products {
+        ...ProductDetails
+    }
 }
 
