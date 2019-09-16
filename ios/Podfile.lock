@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (4.8.2)
+  - Apollo (0.15.1):
+    - Apollo/Core (= 0.15.1)
+  - Apollo/Core (0.15.1)
   - IQKeyboardManager (6.4.0)
   - SDWebImage (5.0.6):
     - SDWebImage/Core (= 5.0.6)
@@ -10,6 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - Apollo
   - IQKeyboardManager
   - SDWebImage
   - Spring (from `https://github.com/MussaCharles/Spring.git`)
@@ -19,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - Apollo
     - IQKeyboardManager
     - SDWebImage
     - SVProgressHUD
@@ -35,12 +40,13 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Apollo: faad3e64ac3f12642757329146318e8439c8f8e5
   IQKeyboardManager: fcef267266379c003181fc3592f6bdb8bf4db839
   SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
   Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyBeaver: 4cc0080d2e23f980652e28978db11a5c9da39165
 
-PODFILE CHECKSUM: 88b22c547d0799bc6e22a00340a84ddf602ba283
+PODFILE CHECKSUM: db06b7c8902874f2ff5e8d8fdf6d69545ca745ea
 
 COCOAPODS: 1.7.5

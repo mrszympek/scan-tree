@@ -10,5 +10,6 @@ pod 'Spring', :git => 'https://github.com/MussaCharles/Spring.git'
 pod 'SDWebImage'
 pod 'SVProgressHUD'
 pod 'IQKeyboardManager'
+pod 'Apollo'
 
 end

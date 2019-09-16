@@ -22,7 +22,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
 }
 
-
 // MARK: - Configuration
 
 extension AppDelegate {
