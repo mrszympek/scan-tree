@@ -1,4 +1,5 @@
 import { Table } from '@material-ui/core';
+import Container from '@material-ui/core/Container';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
@@ -17,7 +18,6 @@ export const GET_PRODUCTS = gql`
             id
             price
             description
-
         }
     }
 `;
@@ -46,6 +46,7 @@ export const ProductsList = () => {
 
   return (
     <div>
+      <Container maxWidth="lg">
       <Table>
         <TableHead>
           <TableRow>
@@ -70,6 +71,7 @@ export const ProductsList = () => {
           }
         </TableBody>
       </Table>
+      </Container>
     </div>
   );
 };

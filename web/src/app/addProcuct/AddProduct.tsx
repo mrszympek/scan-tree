@@ -53,7 +53,6 @@ export const PriceComponent = ({ field }: FieldProps<ProductValues>) => (
     type="number"
     id="standard-required"
     label="Required"
-    defaultValue="Hello World"
     margin="normal"
     { ...field }
   />);
@@ -66,7 +65,6 @@ export const TextComponent: React.FC<FieldProps<ProductValues>> = ({
       required
       id="standard-required"
       label="Required"
-      defaultValue="Hello World"
       margin="normal"
       { ...field }
     />
