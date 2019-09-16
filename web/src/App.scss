@@ -10,6 +10,19 @@ body {
   border-radius: 100% !important;
 }
 
+.nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 16px;
+
+  &-link {
+    padding: 10px;
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+  }
+}
+
 .d-flex {
   display: flex;
 }

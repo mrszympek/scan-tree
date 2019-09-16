@@ -1,10 +1,6 @@
-import { Button } from '@material-ui/core';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
 import { makeStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -49,8 +45,8 @@ export const App = () => {
           <CssBaseline />
           <AppBar position="fixed" className={ classes.appBar }>
             <Toolbar>
-              <Typography variant="h6" noWrap>
-                <Button component={ Link } to="/" color="inherit">Home</Button>
+              <Typography variant="h6" noWrap color={'inherit'}>
+                <Link to="/">Home</Link>
               </Typography>
             </Toolbar>
           </AppBar>
@@ -66,17 +62,13 @@ export const App = () => {
             <Profile/>
 
 
-            <List>
-              <ListItem button key={ 'Dashboard' } component={props => <Link to="/dashboard" {...props} />}>
-                <ListItemText primary={ 'Dashboard' } />
-              </ListItem>
-              <ListItem button key={ 'Produkty' } component={props => <Link to="/products" {...props} />}>
-                <ListItemText primary={ 'Produkty' } />
-              </ListItem>
-              <ListItem button key={ 'Dodaj produkt' } component={props => <Link to="/add-product" {...props} />}>
-                <ListItemText primary={ 'Dodaj produkt' } />
-              </ListItem>
-            </List>
+            <div className="nav">
+              <Link className="nav-link" to="/dashboard">Dashboard</Link>
+              <Link className="nav-link" to="/products">Produkty</Link>
+              <Link className="nav-link" to="/add-product">Dodaj Produkty</Link>
+            </div>
+
+
           </Drawer>
           <main className={ classes.content }>
             <div className={ classes.toolbar } />
