@@ -5,6 +5,7 @@ import UIKit
 
 protocol ProductDetailsBusinessLogic {
     func setupViewWithData()
+    func markAsFavorite()
 }
 
 protocol ProductDetailsDataStore {
@@ -13,7 +14,7 @@ protocol ProductDetailsDataStore {
 
 class ProductDetailsInteractor: ProductDetailsBusinessLogic, ProductDetailsDataStore {
     var presenter: ProductDetailsPresentationLogic?
-    var worker: ProductDetailsWorker?
+    let worker = ProductDetailsWorker()
     
     var selectedProduct: ProductDetails?
 
@@ -24,7 +25,15 @@ class ProductDetailsInteractor: ProductDetailsBusinessLogic, ProductDetailsDataS
             log.error("Product wasn't passed")
             return
         }
-        presenter?.presentProductDetails(product)
+        let isFavorite = worker.isFavorite(product)
+        presenter?.presentProductDetails(product, isFavorite: isFavorite)
+    }
+    
+    func markAsFavorite() {
+        guard let product = selectedProduct else { return }
+        worker.saveFavoriteProduct(product)
+        let isFavorite = worker.isFavorite(product)
+        presenter?.presentProductDetails(product, isFavorite: isFavorite)
     }
     
 }

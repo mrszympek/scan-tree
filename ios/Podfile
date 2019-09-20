@@ -11,5 +11,6 @@ pod 'SDWebImage'
 pod 'SVProgressHUD'
 pod 'IQKeyboardManager'
 pod 'Apollo'
+pod 'QRCodeReader.swift', '~> 10.1.0'
 
 end

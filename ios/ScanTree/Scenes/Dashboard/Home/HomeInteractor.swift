@@ -7,7 +7,7 @@ import Apollo
 protocol HomeBusinessLogic {
     func fetchProducts()
     func search(withQuery query: String)
-    func assignProduct(with identifier: GraphQLID)
+    func assignProduct(with identifier: String)
 }
 
 protocol HomeDataStore {
@@ -47,8 +47,14 @@ class HomeInteractor: HomeBusinessLogic, HomeDataStore {
         presenter?.presentFetchProductsSuccess(productsToShow)
     }
     
-    func assignProduct(with identifier: GraphQLID) {
-        selectedProduct = products.first(where: { $0.id == identifier })
+    func assignProduct(with identifier: String) {
+        guard let product = products.first(where: { $0.id == identifier }) else {
+            log.error("Unable to find product with id: \(identifier)")
+            presenter?.presentUnableToFindProduct(error: "Unable to find product for scanned QR code")
+            return
+        }
+        selectedProduct = product
+        presenter?.presentProductDetails()
     }
     
 }

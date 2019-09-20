@@ -2,9 +2,12 @@
 //  Copyright (c) 2019 KamilZając. All rights reserved.
 
 import UIKit
+import AVFoundation
+import QRCodeReader
 
 protocol HomeRoutingLogic: Router {
     func navigateToProductDetails()
+    func showQRCodeScanner()
 }
 
 protocol HomeDataPassing {
@@ -14,6 +17,19 @@ protocol HomeDataPassing {
 class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     @objc weak var viewController: HomeViewController?
     var dataStore: HomeDataStore?
+    
+    lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
+            
+            $0.showTorchButton        = false
+            $0.showSwitchCameraButton = false
+            $0.showOverlayView        = true
+            $0.rectOfInterest         = CGRect(x: 0.1, y: 0.25, width: 0.8, height: 0.5)
+        }
+        
+        return QRCodeReaderViewController(builder: builder)
+    }()
 
     // MARK: Routing
     
@@ -30,6 +46,15 @@ class HomeRouter: NSObject, HomeRoutingLogic, HomeDataPassing {
     
     func navigateToProductDetails() {
         viewController?.performSegue(withIdentifier: "ProductDetails", sender: nil)
+    }
+    
+    func showQRCodeScanner() {
+        readerVC.delegate = viewController
+        
+        // Presents the readerVC as modal form sheet
+        readerVC.modalPresentationStyle = .formSheet
+        
+        viewController?.present(readerVC, animated: true, completion: nil)
     }
 
     // MARK: Passing data

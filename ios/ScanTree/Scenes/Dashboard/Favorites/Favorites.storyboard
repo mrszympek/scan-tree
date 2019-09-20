@@ -10,31 +10,109 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Favorites View Controller-->
         <scene sceneID="nLs-5v-s5a">
             <objects>
-                <viewController id="GuJ-hS-5Az" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FavoritesViewController" id="GuJ-hS-5Az" customClass="FavoritesViewController" customModule="ScanTree" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Otc-Wh-dXH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RmJ-Qg-iaW" customClass="DesignableView" customModule="Spring">
+                                <rect key="frame" x="16" y="112" width="382" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="S5S-mf-20u">
+                                        <rect key="frame" x="20" y="0.0" width="319" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="searchEditingChanged:" destination="GuJ-hS-5Az" eventType="editingChanged" id="V4X-9t-8aM"/>
+                                        </connections>
+                                    </textField>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-mc-Gpi">
+                                        <rect key="frame" x="347" y="10" width="20" height="20"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="S5S-mf-20u" secondAttribute="bottom" id="6pI-ND-bZd"/>
+                                    <constraint firstItem="S5S-mf-20u" firstAttribute="leading" secondItem="RmJ-Qg-iaW" secondAttribute="leading" constant="20" id="7c1-UD-1tF"/>
+                                    <constraint firstItem="eRk-mc-Gpi" firstAttribute="centerY" secondItem="RmJ-Qg-iaW" secondAttribute="centerY" id="EHB-xY-U0F"/>
+                                    <constraint firstItem="S5S-mf-20u" firstAttribute="top" secondItem="RmJ-Qg-iaW" secondAttribute="top" id="GHS-NZ-aac"/>
+                                    <constraint firstAttribute="trailing" secondItem="eRk-mc-Gpi" secondAttribute="trailing" constant="15" id="IBZ-EI-AGC"/>
+                                    <constraint firstAttribute="height" constant="40" id="MAL-3F-2Xm"/>
+                                    <constraint firstItem="eRk-mc-Gpi" firstAttribute="leading" secondItem="S5S-mf-20u" secondAttribute="trailing" constant="8" id="n0q-Pv-yyk"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                        <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOffsetY">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="shadowOpacity">
+                                        <real key="value" value="0.10000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6He-Zs-BBs">
+                                <rect key="frame" x="0.0" y="176" width="414" height="686"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="GuJ-hS-5Az" id="fuz-bP-XU0"/>
+                                    <outlet property="delegate" destination="GuJ-hS-5Az" id="2VO-s2-wuK"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="6He-Zs-BBs" firstAttribute="trailing" secondItem="9dO-Ut-DFr" secondAttribute="trailing" id="F0c-gH-pXX"/>
+                            <constraint firstItem="9dO-Ut-DFr" firstAttribute="trailing" secondItem="RmJ-Qg-iaW" secondAttribute="trailing" constant="16" id="HPW-4O-7dk"/>
+                            <constraint firstItem="9dO-Ut-DFr" firstAttribute="bottom" secondItem="6He-Zs-BBs" secondAttribute="bottom" id="IuS-p0-47g"/>
+                            <constraint firstItem="RmJ-Qg-iaW" firstAttribute="leading" secondItem="9dO-Ut-DFr" secondAttribute="leading" constant="16" id="Ogw-2D-K44"/>
+                            <constraint firstItem="6He-Zs-BBs" firstAttribute="top" secondItem="RmJ-Qg-iaW" secondAttribute="bottom" constant="24" id="ZEP-hT-hYp"/>
+                            <constraint firstItem="RmJ-Qg-iaW" firstAttribute="top" secondItem="9dO-Ut-DFr" secondAttribute="top" constant="24" id="hdy-6I-obR"/>
+                            <constraint firstItem="6He-Zs-BBs" firstAttribute="leading" secondItem="9dO-Ut-DFr" secondAttribute="leading" id="p34-54-1cU"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9dO-Ut-DFr"/>
                     </view>
                     <navigationItem key="navigationItem" id="wTC-JP-xqD"/>
+                    <connections>
+                        <outlet property="tableView" destination="6He-Zs-BBs" id="ygN-kr-xBD"/>
+                        <segue destination="eqp-uW-4lU" kind="show" identifier="ProductDetails" id="32f-D3-kZf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qED-Io-eGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="707.24637681159425" y="268.52678571428572"/>
         </scene>
-        <!--Favorites-->
+        <!--ProductDetailsViewController-->
+        <scene sceneID="ozp-ue-yCa">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="ProductDetailsViewController" id="eqp-uW-4lU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bIt-RA-xwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1306" y="279"/>
+        </scene>
+        <!--Navigation Controller-->
         <scene sceneID="rWI-0m-jxx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tU5-gr-5Xe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Favorites" id="NG8-ec-a7Z"/>
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="NG8-ec-a7Z"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ql2-sf-KcJ">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -46,4 +124,7 @@
             <point key="canvasLocation" x="-202.89855072463769" y="268.52678571428572"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="search" width="20" height="20"/>
+    </resources>
 </document>

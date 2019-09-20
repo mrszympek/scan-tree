@@ -3,6 +3,10 @@ fragment ProductDetails on Product {
     name
     description
     price
+    latinName
+    category
+    variety
+    createDate
 }
 
 query AllProducts {

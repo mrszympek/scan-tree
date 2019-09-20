@@ -14,6 +14,7 @@ class ProductTableViewCell: UITableViewCell {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var categoryLabel: UILabel!
     
     // MARK: - Properties
     
@@ -24,6 +25,7 @@ class ProductTableViewCell: UITableViewCell {
     func setupCell(with viewModel: Home.List.ViewModel) {
         nameLabel.text = viewModel.name
         priceLabel.text = viewModel.price
+        categoryLabel.text = viewModel.category
     }
     
 }

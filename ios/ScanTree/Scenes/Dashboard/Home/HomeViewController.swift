@@ -2,10 +2,13 @@
 //  Copyright (c) 2019 KamilZając. All rights reserved.
 
 import UIKit
+import QRCodeReader
 
 protocol HomeDisplayLogic: class {
     func displayFetchProductsSuccess(_ viewModels: [Home.List.ViewModel])
     func displayFetchProductsError(error: String)
+    func displayProductDetails()
+    func displayUnableToFindProduct(error: String)
 }
 
 class HomeViewController: UIViewController, HomeDisplayLogic {
@@ -38,6 +41,10 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         interactor?.fetchProducts()
         showProgress()
     }
@@ -50,6 +57,8 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     }
     
     private func setupTableView() {
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
         tableView.register(
             UINib(nibName: "ProductTableViewCell", bundle: nil),
@@ -64,7 +73,7 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
     }
     
     @IBAction func scanPressed(_ sender: UIBarButtonItem) {
-        
+        router?.showQRCodeScanner()
     }
     
     // MARK: Display logic
@@ -77,6 +86,14 @@ class HomeViewController: UIViewController, HomeDisplayLogic {
         dismissProgress()
         self.viewModels = viewModels
         tableView.reloadData()
+    }
+    
+    func displayProductDetails() {
+        router?.navigateToProductDetails()
+    }
+    
+    func displayUnableToFindProduct(error: String) {
+        showError(error)
     }
 
 }
@@ -95,7 +112,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         interactor?.assignProduct(with: viewModels[indexPath.row].id)
-        router?.navigateToProductDetails()
+    }
+    
+}
+
+extension HomeViewController: QRCodeReaderViewControllerDelegate {
+    
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        reader.dismiss(animated: true, completion: nil)
+        interactor?.assignProduct(with: result.value)
+    }
+    
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+        dismiss(animated: true, completion: nil)
     }
     
 }

@@ -4,14 +4,14 @@
 import UIKit
 
 protocol ProductDetailsPresentationLogic {
-    func presentProductDetails(_ product: ProductDetails)
+    func presentProductDetails(_ product: ProductDetails, isFavorite: Bool)
 }
 
 class ProductDetailsPresenter: ProductDetailsPresentationLogic {
     weak var viewController: ProductDetailsDisplayLogic?
     
-    func presentProductDetails(_ product: ProductDetails) {
-        viewController?.displayProductDetails(product)
+    func presentProductDetails(_ product: ProductDetails, isFavorite: Bool) {
+        viewController?.displayProductDetails(product, isFavorite: isFavorite)
     }
     
 }

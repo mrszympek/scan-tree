@@ -6,6 +6,8 @@ import UIKit
 protocol HomePresentationLogic {
     func presentFetchProductsSuccess(_ products: [ProductDetails])
     func presentFetchProductsError(error: Error)
+    func presentUnableToFindProduct(error: String)
+    func presentProductDetails()
 }
 
 class HomePresenter: HomePresentationLogic {
@@ -19,11 +21,24 @@ class HomePresenter: HomePresentationLogic {
         let viewModels = products.map { (product) -> Home.List.ViewModel in
             return Home.List.ViewModel(
                 id: product.id,
-                name: product.name,
+                name: "\(product.name)",
                 description: product.description,
-                price: "\(product.price) zł"
+                price: "Price: \(product.price) zł",
+                latinName: product.latinName,
+                category: "Category: \(product.category)",
+                variety: product.variety,
+                createdDate: product.createDate
             )
         }
         viewController?.displayFetchProductsSuccess(viewModels)
     }
+    
+    func presentProductDetails() {
+        viewController?.displayProductDetails()
+    }
+    
+    func presentUnableToFindProduct(error: String) {
+        viewController?.displayUnableToFindProduct(error: error)
+    }
+    
 }
