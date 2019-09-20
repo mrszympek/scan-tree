@@ -213,6 +213,7 @@
                         <outlet property="latinName" destination="Ml1-qH-5fU" id="HuW-fx-eFa"/>
                         <outlet property="nameLabel" destination="azu-jy-8sI" id="A9f-ck-PPi"/>
                         <outlet property="priceLabel" destination="tKt-bJ-34B" id="M49-Zl-IHN"/>
+                        <outlet property="productImageView" destination="uGF-r4-UIz" id="p1M-ql-Yj7"/>
                         <outlet property="varietyLabel" destination="zl4-ul-7XJ" id="d6M-tt-1kc"/>
                     </connections>
                 </viewController>

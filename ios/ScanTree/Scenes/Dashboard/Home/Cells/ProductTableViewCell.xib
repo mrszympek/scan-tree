@@ -20,32 +20,43 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="09M-5t-FDl">
-                        <rect key="frame" x="26" y="8" width="278" height="63"/>
+                        <rect key="frame" x="92" y="8" width="212" height="63"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cJU-3b-kRX">
-                                <rect key="frame" x="0.0" y="0.0" width="278" height="18"/>
+                                <rect key="frame" x="0.0" y="0.0" width="212" height="18"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyN-5i-VRx">
-                                <rect key="frame" x="0.0" y="27" width="278" height="13.5"/>
+                                <rect key="frame" x="0.0" y="27" width="212" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price: " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ma-eD-7PT">
-                                <rect key="frame" x="0.0" y="49.5" width="278" height="13.5"/>
+                                <rect key="frame" x="0.0" y="49.5" width="212" height="13.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                     </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f62-dh-V7E">
+                        <rect key="frame" x="16" y="9.5" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="60" id="GXA-2r-Jux"/>
+                            <constraint firstAttribute="height" constant="60" id="Mse-GS-08t"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="09M-5t-FDl" secondAttribute="trailing" constant="16" id="Bk1-Bg-zsf"/>
+                    <constraint firstAttribute="trailing" secondItem="09M-5t-FDl" secondAttribute="trailing" constant="16" id="3aP-ug-Kix"/>
+                    <constraint firstItem="f62-dh-V7E" firstAttribute="centerY" secondItem="09M-5t-FDl" secondAttribute="centerY" id="9LE-a1-6Fn"/>
                     <constraint firstItem="09M-5t-FDl" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="CAy-hx-DLM"/>
+                    <constraint firstItem="f62-dh-V7E" firstAttribute="top" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="MRP-jd-B0B"/>
+                    <constraint firstItem="f62-dh-V7E" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="S8a-m4-wYr"/>
+                    <constraint firstItem="09M-5t-FDl" firstAttribute="leading" secondItem="f62-dh-V7E" secondAttribute="trailing" constant="16" id="jeD-dy-bWy"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="f62-dh-V7E" secondAttribute="bottom" constant="8" id="llA-S6-fFT"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="09M-5t-FDl" secondAttribute="bottom" constant="8" id="r4i-OS-TRM"/>
-                    <constraint firstItem="09M-5t-FDl" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="26" id="u8P-iK-4KV"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -54,6 +65,7 @@
                 <outlet property="categoryLabel" destination="wyN-5i-VRx" id="3DI-jk-lVu"/>
                 <outlet property="nameLabel" destination="cJU-3b-kRX" id="RdG-mi-JZr"/>
                 <outlet property="priceLabel" destination="8Ma-eD-7PT" id="A44-3s-36S"/>
+                <outlet property="productImageView" destination="f62-dh-V7E" id="sew-Fq-PZh"/>
             </connections>
         </tableViewCell>
     </objects>

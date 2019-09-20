@@ -18,6 +18,7 @@ class ProductDetailsViewController: UIViewController, ProductDetailsDisplayLogic
     @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var varietyLabel: UILabel!
+    @IBOutlet weak var productImageView: UIImageView!
     
     // MARK: Properties
 
@@ -67,6 +68,7 @@ class ProductDetailsViewController: UIViewController, ProductDetailsDisplayLogic
         categoryLabel.text = "Price: \(product.category)"
         dateLabel.text = "Create date: \(product.createDate)"
         varietyLabel.text = "Variety: \(product.variety)"
+        productImageView.sd_setImageWithFadeFrom(imageString: product.image)
         
         let buttonImage = UIImage(named: isFavorite ? "starFilled" : "star")
         let barButtonItem = UIBarButtonItem(image: buttonImage, style: .plain, target: self, action: #selector(markAsFavorite))

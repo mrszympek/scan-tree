@@ -19,7 +19,8 @@ class FavoritesWorker {
                     latinName: $0.latinName,
                     category: $0.category,
                     variety: $0.variety,
-                    createDate: $0.createdDate
+                    createDate: $0.createdDate,
+                    image: $0.image
                 )
             })
         } catch {

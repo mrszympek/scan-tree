@@ -21,7 +21,8 @@ class FavoritesPresenter: FavoritesPresentationLogic {
                 latinName: product.latinName,
                 category: "Category: \(product.category)",
                 variety: product.variety,
-                createdDate: product.createDate
+                createdDate: product.createDate,
+                image: product.image
             )
         }
         viewController?.displayFetchProductsSuccess(viewModels)

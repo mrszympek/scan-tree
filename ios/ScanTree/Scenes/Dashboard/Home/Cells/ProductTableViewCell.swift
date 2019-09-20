@@ -15,6 +15,7 @@ class ProductTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var productImageView: UIImageView!
     
     // MARK: - Properties
     
@@ -26,6 +27,7 @@ class ProductTableViewCell: UITableViewCell {
         nameLabel.text = viewModel.name
         priceLabel.text = viewModel.price
         categoryLabel.text = viewModel.category
+        productImageView.sd_setImageWithFadeFrom(imageString: viewModel.image)
     }
     
 }

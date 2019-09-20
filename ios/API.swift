@@ -59,8 +59,8 @@ public final class AllProductsQuery: GraphQLQuery {
         self.resultMap = unsafeResultMap
       }
 
-      public init(id: GraphQLID, name: String, description: String, price: Double, latinName: String, category: String, variety: String, createDate: String) {
-        self.init(unsafeResultMap: ["__typename": "Product", "id": id, "name": name, "description": description, "price": price, "latinName": latinName, "category": category, "variety": variety, "createDate": createDate])
+      public init(id: GraphQLID, name: String, description: String, price: Double, latinName: String, category: String, variety: String, createDate: String, image: String) {
+        self.init(unsafeResultMap: ["__typename": "Product", "id": id, "name": name, "description": description, "price": price, "latinName": latinName, "category": category, "variety": variety, "createDate": createDate, "image": image])
       }
 
       public var __typename: String {
@@ -112,9 +112,10 @@ public struct ProductDetails: GraphQLFragment {
   ///   category
   ///   variety
   ///   createDate
+  ///   image
   /// }
   public static let fragmentDefinition =
-    "fragment ProductDetails on Product { __typename id name description price latinName category variety createDate }"
+    "fragment ProductDetails on Product { __typename id name description price latinName category variety createDate image }"
 
   public static let possibleTypes = ["Product"]
 
@@ -128,6 +129,7 @@ public struct ProductDetails: GraphQLFragment {
     GraphQLField("category", type: .nonNull(.scalar(String.self))),
     GraphQLField("variety", type: .nonNull(.scalar(String.self))),
     GraphQLField("createDate", type: .nonNull(.scalar(String.self))),
+    GraphQLField("image", type: .nonNull(.scalar(String.self))),
   ]
 
   public private(set) var resultMap: ResultMap
@@ -136,8 +138,8 @@ public struct ProductDetails: GraphQLFragment {
     self.resultMap = unsafeResultMap
   }
 
-  public init(id: GraphQLID, name: String, description: String, price: Double, latinName: String, category: String, variety: String, createDate: String) {
-    self.init(unsafeResultMap: ["__typename": "Product", "id": id, "name": name, "description": description, "price": price, "latinName": latinName, "category": category, "variety": variety, "createDate": createDate])
+  public init(id: GraphQLID, name: String, description: String, price: Double, latinName: String, category: String, variety: String, createDate: String, image: String) {
+    self.init(unsafeResultMap: ["__typename": "Product", "id": id, "name": name, "description": description, "price": price, "latinName": latinName, "category": category, "variety": variety, "createDate": createDate, "image": image])
   }
 
   public var __typename: String {
@@ -218,6 +220,15 @@ public struct ProductDetails: GraphQLFragment {
     }
     set {
       resultMap.updateValue(newValue, forKey: "createDate")
+    }
+  }
+
+  public var image: String {
+    get {
+      return resultMap["image"]! as! String
+    }
+    set {
+      resultMap.updateValue(newValue, forKey: "image")
     }
   }
 }

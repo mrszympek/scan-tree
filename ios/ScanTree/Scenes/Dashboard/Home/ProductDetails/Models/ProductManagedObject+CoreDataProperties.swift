@@ -25,5 +25,6 @@ extension ProductManagedObject {
     @NSManaged public var category: String
     @NSManaged public var variety: String
     @NSManaged public var createdDate: String
+    @NSManaged public var image: String
 
 }

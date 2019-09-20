@@ -29,6 +29,7 @@ extension ProductManagedObject {
         category = product.category
         variety = product.variety
         createdDate = product.createDate
+        image = product.image
     }
     
 }

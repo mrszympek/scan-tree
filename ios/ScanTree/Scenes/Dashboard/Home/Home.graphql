@@ -7,6 +7,7 @@ fragment ProductDetails on Product {
     category
     variety
     createDate
+    image
 }
 
 query AllProducts {

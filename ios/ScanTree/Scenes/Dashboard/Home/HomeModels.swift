@@ -14,6 +14,7 @@ enum Home {
             let category: String
             let variety: String
             let createdDate: String
+            let image: String
         }
     }
 }
