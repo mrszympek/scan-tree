@@ -57,6 +57,7 @@ type Product {
     createDate: DateTime!
     height: Float!
     destinationCountry: String!
+    image: String!
 }
 
 type ProductConnection {
@@ -76,6 +77,7 @@ input ProductCreateInput {
     createDate: DateTime!
     height: Float!
     destinationCountry: String!
+    image: String!
 }
 
 type ProductEdge {
@@ -104,6 +106,8 @@ enum ProductOrderByInput {
     height_DESC
     destinationCountry_ASC
     destinationCountry_DESC
+    image_ASC
+    image_DESC
 }
 
 type ProductPreviousValues {
@@ -117,6 +121,7 @@ type ProductPreviousValues {
     createDate: DateTime!
     height: Float!
     destinationCountry: String!
+    image: String!
 }
 
 type ProductSubscriptionPayload {
@@ -147,6 +152,7 @@ input ProductUpdateInput {
     createDate: DateTime
     height: Float
     destinationCountry: String
+    image: String
 }
 
 input ProductUpdateManyMutationInput {
@@ -159,6 +165,7 @@ input ProductUpdateManyMutationInput {
     createDate: DateTime
     height: Float
     destinationCountry: String
+    image: String
 }
 
 input ProductWhereInput {
@@ -284,6 +291,20 @@ input ProductWhereInput {
     destinationCountry_not_starts_with: String
     destinationCountry_ends_with: String
     destinationCountry_not_ends_with: String
+    image: String
+    image_not: String
+    image_in: [String!]
+    image_not_in: [String!]
+    image_lt: String
+    image_lte: String
+    image_gt: String
+    image_gte: String
+    image_contains: String
+    image_not_contains: String
+    image_starts_with: String
+    image_not_starts_with: String
+    image_ends_with: String
+    image_not_ends_with: String
     AND: [ProductWhereInput!]
     OR: [ProductWhereInput!]
     NOT: [ProductWhereInput!]

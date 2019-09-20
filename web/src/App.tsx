@@ -11,6 +11,7 @@ import './App.scss';
 import { Profile } from './components/profile/profile';
 import { client } from './lib/apollo/client';
 import { RoutingComponent } from './lib/routing/routing';
+import logo from  './logo.png';
 
 const drawerWidth = 240;
 
@@ -20,6 +21,7 @@ const useStyles = makeStyles(theme => ({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    background: "#e2a022",
   },
   drawer: {
     width: drawerWidth,
@@ -46,7 +48,10 @@ export const App = () => {
           <AppBar position="fixed" className={ classes.appBar }>
             <Toolbar>
               <Typography variant="h6" noWrap color={'inherit'}>
-                <Link to="/">Home</Link>
+                <Link to="/" className="logo">
+                  <img src={logo} alt="" />
+                  ScanTree
+                </Link>
               </Typography>
             </Toolbar>
           </AppBar>
@@ -63,9 +68,9 @@ export const App = () => {
 
 
             <div className="nav">
-              <Link className="nav-link" to="/dashboard">Dashboard</Link>
-              <Link className="nav-link" to="/products">Produkty</Link>
-              <Link className="nav-link" to="/add-product">Dodaj Produkty</Link>
+              {/*<Link className="nav-link" to="/dashboard">Dashboard</Link>*/}
+              <Link className="nav-link" to="/products">Products List</Link>
+              <Link className="nav-link" to="/add-product">Add new product</Link>
             </div>
 
 

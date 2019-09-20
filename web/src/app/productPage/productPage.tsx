@@ -35,6 +35,7 @@ export const GET_EXACT_PRODUCT = gql`
       latinName
       variety
       description
+      image
     }
   }
 `;
@@ -72,6 +73,7 @@ export const ProductPage = ({ match }: any) => {
         <div className="mb-s"><span className="fw-medium">Nazwa łacińska produktu: </span>{ product.latinName }</div>
         <div className="mb-s"><span className="fw-medium">Odmiana: </span>{ product.variety }</div>
         <div className="mb-s"><span className="fw-medium">Kategoria: </span>{ product.category }</div>
+        <div className="mb-s"><img src={product.image} alt={product.name} /> </div>
         <div className="mb-s"><span className="fw-medium">Opis: </span>{ product.description }</div>
         <div className="mb-s"><span className="fw-medium">Kraj pochodzenia: </span>{ product.destinationCountry }</div>
         <div className="mb-s"><span className="fw-medium">Wysokość: </span>{ product.height }</div>

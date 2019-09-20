@@ -16,4 +16,5 @@ type Product {
   createDate: DateTime!
   height: Float!
   destinationCountry: String!
+  image: String!
 }
