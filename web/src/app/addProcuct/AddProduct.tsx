@@ -73,6 +73,7 @@ export const handleFormSubmit = async (values: ProductValues) => {
       height: values.height,
       latinName: values.latinName,
       variety: values.variety,
+      image: values.image
     }
   });
 
@@ -156,11 +157,11 @@ export const AddProduct = () => {
         validationSchema={ addProductSchema }
         render={ (formikBag: FormikProps<ProductValues>) => (
           <Form>
-						{/*<pre>*/}
-						{/*	{*/}
-            {/*    JSON.stringify(formikBag, null, 2)*/}
-            {/*  }*/}
-						{/*</pre>*/}
+						<pre>
+							{
+                JSON.stringify(formikBag, null, 2)
+              }
+						</pre>
             <Grid
               container
               spacing={ 3 }
@@ -182,49 +183,42 @@ export const AddProduct = () => {
                 <Field
                   name="latinName"
                   component={ TextComponent }
-                  type="number"
                 />
               </Grid>
               <Grid item xs={ 4 }>
                 <Field
                   name="category"
                   component={ TextComponent }
-                  type="number"
                 />
               </Grid>
               <Grid item xs={ 4 }>
                 <Field
                   name="variety"
                   component={ TextComponent }
-                  type="number"
                 />
               </Grid>
               <Grid item xs={ 4 }>
                 <Field
                   name="destinationCountry"
                   component={ TextComponent }
-                  type="number"
                 />
               </Grid>
               <Grid item xs={ 4 }>
                 <Field
                   name="image"
                   component={ TextComponent }
-                  type="number"
                 />
               </Grid>
               <Grid item xs={ 4 }>
                 <Field
                   name="height"
                   component={ PriceComponent }
-                  type="number"
                 />
               </Grid>
               <Grid item xs={ 4 }>
                 <Field
                   name="price"
                   component={ PriceComponent }
-                  type="number"
                 />
               </Grid>
             </Grid>
