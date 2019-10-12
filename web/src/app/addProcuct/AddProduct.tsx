@@ -11,6 +11,7 @@ import * as Yup from 'yup';
 import { client } from '../../lib/apollo/client';
 import { Product } from '../../lib/prisma/generated/prisma-client/index';
 import { GET_PRODUCTS } from '../productsList/productsList';
+import { get } from 'lodash';
 
 export type ProductValues = Omit<Product, 'id'>;
 
@@ -82,26 +83,41 @@ export const handleFormSubmit = async (values: ProductValues) => {
   }
 };
 
-export const PriceComponent = ({ field }: FieldProps<ProductValues>) => (
-  <TextField
-    required
-    type="number"
-    id="standard-required"
-    margin="normal"
-    label={field.name}
-    { ...field }
-  />);
+export const PriceComponent = ({ field, form }: FieldProps<ProductValues>) => {
+
+  const checkIfInputIsValid = get(form.touched, field.name) && get(form.errors, field.name) ? get(form.errors, field.name) : null;
+
+  return (
+    <>
+      <TextField
+        required
+        type="number"
+        id="standard-required"
+        margin="normal"
+        label={field.name}
+        error={!!checkIfInputIsValid}
+        { ...field }
+      />
+      <span>
+        {
+          checkIfInputIsValid &&
+          get(form.errors, field.name)
+        }
+      </span>
+    </>
+  )
+};
 
 export const TextComponent: React.FC<FieldProps<ProductValues>> = ({
   field, form
 }) => {
 
-  const isFormValid = form && form.errors && form.errors.hasOwnProperty(field.name);
+  const checkIfInputIsValid = get(form.touched, field.name) && get(form.errors, field.name) ? get(form.errors, field.name) : null;
 
   return(
     <div>
       <TextField
-        error={isFormValid}
+        error={!!checkIfInputIsValid}
         id="standard-required"
         label={ field.name }
         margin="normal"
@@ -110,9 +126,8 @@ export const TextComponent: React.FC<FieldProps<ProductValues>> = ({
       />
       <span>
         {
-          form &&
-          form.errors &&
-            form.errors.name
+          checkIfInputIsValid &&
+          get(form.errors, field.name)
         }
       </span>
     </div>
@@ -121,21 +136,23 @@ export const TextComponent: React.FC<FieldProps<ProductValues>> = ({
 
 export const addProductSchema = Yup.object().shape({
   name: Yup.string()
-    .required('Required'),
+    .required('Name required'),
   latinName: Yup.string()
-    .required('Required'),
+    .required('Latin name required'),
   category:  Yup.string()
-    .required('Required'),
+    .required('Category required'),
   height: Yup.number()
-    .required('Required'),
+    .required('Height required'),
   description:Yup.string()
-    .required('Required'),
+    .required('Description required'),
   price: Yup.number()
-    .required('Required'),
+    .required('Price required'),
   variety: Yup.string()
-    .required('Required'),
+    .required('Variety required'),
   destinationCountry: Yup.string()
-    .required('Required'),
+    .required('Destination country required'),
+  image: Yup.string()
+    .required('Image URL required'),
 });
 
 export const AddProduct = () => {
