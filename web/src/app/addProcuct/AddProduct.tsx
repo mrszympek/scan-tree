@@ -174,11 +174,6 @@ export const AddProduct = () => {
         validationSchema={ addProductSchema }
         render={ (formikBag: FormikProps<ProductValues>) => (
           <Form>
-						<pre>
-							{
-                JSON.stringify(formikBag, null, 2)
-              }
-						</pre>
             <Grid
               container
               spacing={ 3 }
